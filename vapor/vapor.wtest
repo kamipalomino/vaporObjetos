@@ -1,0 +1,39 @@
+import juegos.*
+import Jugador.*
+describe "Puntos a resolver Vapor" {
+
+
+/*  Saber . Esto es la suma de las gemas que le otorga cada logro obtenido.
+Hacer que un jugador compre un juego. Cada juego tiene cierto valor.
+Si no puede comprarlo, se debe lanzar una excepción. Puede comprarlo únicamente si lo que tiene en su billetera virtual + sus gemas (1 gema = $1) es suficiente para lo que cuesta el juego. Tampoco puede comprar un juego si es que ya lo había comprado.
+Si puede comprarlo pero no le alcanza el dinero de la billetera, primero debe transformar todos sus logros en dinero (sí,  todos) y luego gastar en el juego.
+Sabiendo que un logro es importante cuando otorga más de 500 gemas (salvo los logros de avance, que nunca son importantes), conocer en qué juegos se obtuvieron logros importantes.
+
+Si el juego es rosita no nos interesa, ya que no podemos alardear con algo así.
+Es rosita si tiene menos de 1 litro de sangre por hora o la dificultad es 2 o menos.
+  */
+
+	test "punto 1)1- cuántas gemas tiene un jugador" {
+		const doom = new Juegos(nivelDificultad = 10, sangrePorHora = 5, horasJugadas = 12, gemas = 600, experiencia = 5, precioJuego = 300)
+		const logroPrueba = new Logros()
+		logroPrueba.agregarJuego(doom)
+		logroPrueba.otorgarGemas(100)
+		
+		var cami = new Jugador(billeteraVirtual = 1000) 
+		cami.agregateUnJuego(doom)
+		cami.experienciaGamer(12)
+		cami.agregateUnLogro(logroPrueba)
+
+		assert.equals(700, cami.gemas())
+
+	}
+	test "No puedo comprar juego, ya lo tengo" {
+		const doom = new Juegos(nivelDificultad = 10, sangrePorHora = 5, horasJugadas = 12, gemas = 600, experiencia = 5, precioJuego = 300)
+		var cami = new Jugador(billeteraVirtual = 1000) 
+		cami.agregateUnJuego(doom)
+		
+		if(cami.juegos.find(doom)){
+			error.throw.
+			}
+	
+}
