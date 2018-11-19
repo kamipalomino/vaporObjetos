@@ -7,9 +7,15 @@ class Jugador {
 	var property logros = #{}
 	
 	method agregateUnJuego(unJuego){juegos.add(unJuego)}
-	method agregateUnLogro(unLogro){logros.add(unLogro)}
+	mrthod logros()=logros
+	method juegos() = juegos
+	method agregateUnLogro(unLogro){self.logros().add(unLogro)}
+	method experiencia()= experiencia
 	method experienciaGamer(unasHoras)= {experiencia = unasHoras*25}
-	method gemas()= juegos.sum{unJuego => unJuego.otorgarGemas()}
+	method gemas()= self.logros().sum{logro => logro.otorgaGemas()}
+	
+
+	
 	method transformarLogrosEnDinero(){
 		billeteraVirtual += gemas
 		gemas =0
@@ -35,4 +41,14 @@ Sabiendo que un logro es importante cuando otorga más de 500 gemas (salvo los l
 
 Si el juego es rosita no nos interesa, ya que no podemos alardear con algo así.
 Es rosita si tiene menos de 1 litro de sangre por hora o la dificultad es 2 o menos.
+ 
+  const peroperty logros = #{}
+  >> gemas() = self.logros().sum({logro => logro.gemas()})
+  >> agregáLogro(unLogro){ // De ahora en más, asumimos que para cada colección hay un "agregá..."
+    self.logros().add(unLogro)
+  }
+
+ 
+ 
+ 
  */
