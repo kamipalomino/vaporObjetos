@@ -1,12 +1,11 @@
-<<<<<<< refs/remotes/origin/master
-=======
+
 /** First Wollok example */
 class Juegos {
-	//const property juego
+	var property juegos = #{}
 	var property nivelDificultad 
 	var property sangrePorHora
 	var property horasJugadas 
-	var property gemas 
+	var property logro  = #{}
 	var property experiencia 
 	var property precioJuego 
 	
@@ -15,12 +14,8 @@ class Juegos {
 		precioJuego = valor
 		return precioJuego
 	}
+
 	method nivelDificultad()=nivelDificultad
-	method otorgarGemas(unaG){
-		 gemas.sum{ => unaG + gemas}
-		 return gemas
-	}
-	method otorgarGemas()=gemas	
 	method sangrePorHora() {
 		return sangrePorHora*horasJugadas
 	}
@@ -56,8 +51,14 @@ object experienciaAlcanzada inherits Logros{
 	}
 }
 class Logros inherits Juegos{
-	var property juegos= #{}
-	method agregarJuego(unJuego) = juegos.add(unJuego)
+	var property gemas = 0
+	method agregaUnJuego(unJuego) = juegos.add(unJuego)
+	method agregateAlJuego(unJuego)={unJuego => unJuego.logro.add(self)}
+	method otorgarGemas(unaG){
+		 gemas.sum{ unaG => unaG + gemas}
+		 return gemas
+	}
+	method otorgarGemas()=gemas	
 }
->>>>>>> Create juegos.wlk
+
 
