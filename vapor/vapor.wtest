@@ -14,9 +14,9 @@ Es rosita si tiene menos de 1 litro de sangre por hora o la dificultad es 2 o me
   */
 
 	test "punto 1)1- cuántas gemas tiene un jugador" {
-		const doom = new Juegos(nivelDificultad = 10, sangrePorHora = 5, horasJugadas = 12, gemas = 600, experiencia = 5, precioJuego = 300)
+		const doom = new Juegos(nivelDificultad = 10, sangrePorHora = 5, horasJugadas = 12, experiencia = 5, precioJuego = 300)
 		const logroPrueba = new Logros()
-		logroPrueba.agregarJuego(doom)
+		logroPrueba.agregateUnJuego(doom)
 		logroPrueba.otorgarGemas(100)
 		
 		var cami = new Jugador(billeteraVirtual = 1000) 
