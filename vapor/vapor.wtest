@@ -33,7 +33,7 @@ Es rosita si tiene menos de 1 litro de sangre por hora o la dificultad es 2 o me
 		cami.agregateUnJuego(doom)
 		
 		if(cami.juegos.find(doom)){
-			error.throw.
+			throw new ExcepcionPorFaltaDeDinero ("Ya lo tenés  genio")
 			}
 	
 }
